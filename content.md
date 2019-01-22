@@ -76,6 +76,30 @@ parallelism
 ---
 ## Parallelising Code
 
+* Traditionally HPC has used data parallelism
+* All processes in the application perform same tasks on different sections of problem
+* Data parallelism can be achieved by:
+  * Shared memory (SHM) - all processes can access same memory space
+  * Message passing (MP) - processes must explictly communicate all shared data
+  * Parallel accelerators - GPUs and intel MIC
+* Common low level libs
+  * OpenMP - SHM primitives for C/C++/Fortran
+  * MPI - MPI standard implemented by many vendors, for many languages
+  * CUDA - Run many parallel threads on Nvidia GPUs
+  * OpenACC - OpenMP-like primitives for GPU/Intel MIC offload
+  * Intel TBB - threading building blocks for parallel applications
 
 ---
-## Conclusions
+## But don't reinvent the wheel...
+
+* Lots of high level libraries already available, e.g:
+  * General high performance math - GSL, MKL, FFTW
+  * Linear Algebra - LaPACK, BLAS, Intel MKL, PETSc, SLEPc
+  * ODE/PDE solvers - PETSc, PVODE, FEniCS
+  * Domain specific frameworks - OpenFOAM, Code_Saturne, CP2K
+  * General purpose parallel frameworks - PETSc, Trilinos, Dask
+
+* Use appropriate frameworks to develop faster, more reliable code
+
+---
+ Conclusions
