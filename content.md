@@ -1,4 +1,8 @@
-# Sheffield RSE talk for UoS Physics seminar series
+# Make it right, then make it go fast enough
+
+<div class="right">
+    <img src="images/rse-logoonly-stroke.png" width="50%" style="padding: 0 15px; float: right;"/>
+</div>
 
 Phil Tooley and Will Furnass
 
