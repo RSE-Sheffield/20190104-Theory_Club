@@ -32,10 +32,16 @@ Research Software Engineering team, University of Sheffield
 ---
 ## Writing Performant Code
 
-* "Premature optimisation is the root of all evil." -- Donald Knuth
-* Ignore performance until your code works
-* Once it works, look for "hot spots"
-* Parts of the code that:
+<div class="middle">
+<div class="center">
+<img src="images/knuth-evil.png" width="100%">
+</div>
+</div>
+
+---
+## Writing Performant Code
+* Ignore code performance until it works
+* Once it works, look for "hot spots" that:
     * Take a long time to execute
     * Are executed many times
 
@@ -43,12 +49,16 @@ Research Software Engineering team, University of Sheffield
 
 Write correct code then make it fast, pass on wisom from MathWorks
 
+---
 ## Profiling Code
 
 * *Is* my code genuinely slow?
+  * Consider time cost to improve code
+  * Performance of similar codes?
+<p style="margin-bottom:10px"><p/>
 * *Where* is my code slow?
 * *Why* is my code slow?
-*
+<p style="margin-bottom:10px"><p/>  
 * Lots of tools to help with this...
 
 ???
