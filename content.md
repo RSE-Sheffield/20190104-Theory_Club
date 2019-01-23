@@ -70,13 +70,14 @@ parallelism
 ???
 
 ---
+## Example: Flame graph
 
-* Flamegraph example figure??
+<img class="center" src="profile.svg" width="100%"/>
 
 ---
 ## Parallelising Code
 
-* Traditionally HPC has used data parallelism
+* Traditionally HPC has used data parallel paradigm
 * All processes in the application perform same tasks on different sections of problem
 * Data parallelism can be achieved by:
   * Shared memory (SHM) - all processes can access same memory space
@@ -89,6 +90,12 @@ parallelism
   * OpenACC - OpenMP-like primitives for GPU/Intel MIC offload
   * Intel TBB - threading building blocks for parallel applications
 
+* Less "traditional" approaches becoming more common:
+  * Cluster computing frameworks
+  * Heterogeneous programs
+  * Streaming computation
+  * Directed acyclic graphs
+
 ---
 ## But don't reinvent the wheel...
 
@@ -98,8 +105,24 @@ parallelism
   * ODE/PDE solvers - PETSc, PVODE, FEniCS
   * Domain specific frameworks - OpenFOAM, Code_Saturne, CP2K
   * General purpose parallel frameworks - PETSc, Trilinos, Dask
+  * Cluster computing frameworks - Dask, Hadoop, Spark 
 
-* Use appropriate frameworks to develop faster, more reliable code
+* Use appropriate frameworks to develop more reliable code
 
 ---
- Conclusions
+## Other acceleration techniques
+
+* Language choices:
+  * Python/MATLAB are very common in science
+  * C/C++/Fortran used for larger codes
+  * Some MATLAB/IDL/R also
+* Typically we consider C/C++/FORTRAN as "fast" while interpreted languages like python are "slow"
+* This is becoming less true, e.g Python
+  * Possible to write extensions in C/C++ for heavy lifting
+    * Many scientific packages e.g Numpy/Scipy do exactly this
+    * Numerical work using numpy is speed competetive with C but easier to write and debug
+  * Custom python functions can be compiled using the Numba package - speed of C using pure python syntax
+  * Numba even works on GPUs!
+
+---
+## Conclusions
