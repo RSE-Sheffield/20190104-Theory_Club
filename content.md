@@ -94,27 +94,37 @@ parallelism
   * Message passing (MP) - processes must explictly communicate all shared data
   * Parallel accelerators - GPUs and intel MIC
 
+* Choose platform suited to problem problem
+
 ---
 ## Parallelising Code
-* Common low level libraries
+
+* Less "traditional" approaches:
+  * Cluster computing frameworks
+  * Heterogeneous programs
+  * Streaming computation
+  * Directed acyclic graphs
+
+* All approaches have their place
+* Consider program structure to find a good fit
+
+
+---
+## Parallelising Code
+
+* Low level parallel libraries:
   * OpenMP - SHM primitives for C/C++/Fortran
   * MPI - MPI standard implemented by many vendors, for many languages
   * CUDA - Run many parallel threads on Nvidia GPUs
   * OpenACC - OpenMP-like primitives for GPU/Intel MIC offload
   * Intel TBB - threading building blocks for parallel applications
 
----
-## Parallelising Code
-* Less "traditional" approaches becoming more common:
-  * Cluster computing frameworks
-  * Heterogeneous programs
-  * Streaming computation
-  * Directed acyclic graphs
+* No maths here, just communication
 
 ---
 ## But don't reinvent the wheel
 
-* Many high level libraries available, e.g:
+* Higher level maths libraries available, e.g:
   * General high performance math - GSL, MKL
   * Linear Algebra - LaPACK, BLAS, Intel MKL
   * ODE/PDE solvers - PETSc, PVODE, FEniCS
@@ -125,19 +135,26 @@ parallelism
 * Use appropriate frameworks to develop more reliable code
 
 ---
-## Other acceleration techniques
+## Other acceleration methods
 
 * Language choices:
   * Python/MATLAB are very common in science
   * C/C++/Fortran used for larger codes
-  * Some MATLAB/IDL/R also
+  * Some Mathmatica/IDL/R also
+
 * Typically we consider C/C++/FORTRAN as "fast" while interpreted languages like python are "slow"
-* This is becoming less true, e.g Python
-  * Possible to write extensions in C/C++ for heavy lifting
-    * Many scientific packages e.g Numpy/Scipy do exactly this
-    * Numerical work using numpy is speed competetive with C but easier to write and debug
-  * Custom python functions can be compiled using the Numba package - speed of C using pure python syntax
+
+---
+## Accelerating Python
+
+* Use Numpy/Scipy for numerical work
+  * Numpy arrays are speed competitive with C but easier to write and debug
+
+* Use Numba to compile Python code 
+  * Speed of C using pure python syntax
   * Numba even works on GPUs!
+
+* Explicitly write numerical code in C/C++
 
 ---
 ## Conclusions
