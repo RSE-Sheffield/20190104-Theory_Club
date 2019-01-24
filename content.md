@@ -121,9 +121,6 @@ Sometimes code is as fast as it can really be, in that case look for other appro
 parallelism.
 
 ---
-## Development/optimisation cycle
-
----
 ## Profiling Tools
 
 * Various types of profiling tool:
@@ -288,6 +285,66 @@ parallelism.
 * Or explicitly write numerical code in C/C++
 
 ---
+## Sustainable Software
+
+<div class="middle">
+    <div class="center">
+        <img src="images/xkcd_good_code.png" width="42%" />
+    </div>
+</div>
+
+
+.footnote[ Randall Munroe, XKCD (https://xkcd.com/844/)] 
+
+---
+## A Common Problem 
+
+* Emailed a zip of source files:
+
+<img src="images/wakereadme.png" width="100%" />
+
+* How do I run this?
+* What exactly will it do?
+* How do I interpret the output?
+
+---
+## A Better Experience 
+<img src="images/fbpic_readme.png" width="100%" />
+
+---
+## A Better Experience 
+<img src="images/fbpic_docs.png" width="100%" />
+
+---
+## Version Control
+
+* Version Control Systems (VCS/Git)
+  * Keep a full history of changes
+  * Easily restore old versions
+  * Develop multiple versions together
+  * Try things out without consequences
+  * Share code and develop collaboratively
+
+* Various out there but `Git` is most common
+
+---
+## Github
+
+<div class="right">
+    <img src="images/Octocat.png" width="30%" style="float: right;"/>
+</div>
+  * Online git repositories
+  * Public repos for open source
+  * Free private repos for education and research
+  * Impact and engagement tracking
+  * Community building tools:
+    * Bug reporting/tracking
+    * Documentation hosting
+    * Project wikis
+
+  
+
+---
 ## Testing: Why?
 
 <div class="middle">
@@ -296,7 +353,7 @@ parallelism.
     </div>
 </div>
 
-.footnote[.red.bold[*] Randall Munroe, XKCD (https://xkcd.com/1909/)] 
+.footnote[ Randall Munroe, XKCD (https://xkcd.com/1909/)] 
 
 ---
 ## Testing: Types
@@ -381,33 +438,7 @@ For more info (inc. **mailing list** and events schedule) see [https://rse.shef.
     * Either as part of a grant proposal
     * Or just for a few days
 
-Examples of projects...
-
 ---
-## Sustainable Software
-
----
-## A Common Problem 
-
-* Emailed a zip of source files:
-
-<img src="images/wakereadme.png" width="100%" />
-
-* How do I run this?
-* What exactly will it do?
-* How do I interpret the output?
-
----
-## A Better Experience 
-<img src="images/fbpic_readme.png" width="100%" />
-
----
-## A Better Experience 
-<img src="images/fbpic_docs.png" width="100%" />
-
----
-## Conclusions
-
 
 ### Contact
 
