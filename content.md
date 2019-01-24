@@ -19,10 +19,9 @@ Research Software Engineering team, University of Sheffield
     * Other acceleration techniques
     * Accelerating Python
 1. Creating sustainable software
+    * Documentation
     * Version control
     * Testing
-    * Documentation
-    * Packaging and dissemination
 1. Further Resources and RSE Sheffield
 
 ---
