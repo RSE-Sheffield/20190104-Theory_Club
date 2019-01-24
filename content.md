@@ -342,8 +342,6 @@ parallelism.
     * Documentation hosting
     * Project wikis
 
-  
-
 ---
 ## Testing: Why?
 
@@ -408,7 +406,15 @@ parallelism.
 </div>
 
 ---
-## Learning more / getting help
+### Example: Travis job status for GitHub Pull Request
+<div class="middle">
+    <div class="center">
+        <img src="images/travis-example.png" width="100%" />
+    </div>
+</div>
+
+---
+## Research software: learning more / getting help
 
 * **Workshops**
     * RSE team runs various workshops on fundamentals:
@@ -416,10 +422,17 @@ parallelism.
     * and more advanced topics:
         * multithreading/multiprocessing, CUDA, deep learning...
     * CiCS also offer training in C/C++, Fortran, Python, MATLAB and HPC
+
+---
+## Research software: learning more / getting help
+
 * **Talks**
     * RSE seminar series 
 * **Code Clinic**
     * Book an appointment to get help with a coding issue
+* **Hire an RSE** to help with your project(s)!
+    * Either as part of a grant proposal
+    * Or just for a few days
 
 ---
 For more info (inc. **mailing list** and events schedule) see [https://rse.shef.ac.uk/](https://rse.shef.ac.uk/).
@@ -430,17 +443,21 @@ For more info (inc. **mailing list** and events schedule) see [https://rse.shef.
     </div>
 </div>
 
+---
+## The RSE team
+
+* 9 RSEs
+* Team kick-started by 2x EPSRC fellowships
+* Based in Computer Science
+* Some current projects:
+    * High-performance **agent-based modelling** (CUDA)
+    * Deep learning and workflows for **NLP**
+    * MRI **image alignment** (registration) software (C++/PETSc)
+    * Agile **web apps** for visualising datasets (R/Shiny)
+    * Augmenting **cell modelling** software (C++/PETSc)
 
 ---
-## Getting more help
-
-* Hire an RSE to help with your project(s)!
-    * Either as part of a grant proposal
-    * Or just for a few days
-
----
-
-### Contact
+## Getting in touch
 
 <i class="fa fa-globe fa-lg"></i>&nbsp;[https://rse.shef.ac.uk](https://rse.shef.ac.uk)
 
@@ -449,24 +466,3 @@ For more info (inc. **mailing list** and events schedule) see [https://rse.shef.
 <i class="fa fa-github fa-lg"></i>&nbsp;[@RSE-Sheffield](https://github.com/RSE-Sheffield/RSE-Sheffield.github.io)
 
 <i class="fa fa-twitter fa-lg"></i>&nbsp;[@RSE_Sheffield](https://twitter.com/rse_sheffield)
-
----
-## TO INTEGRATE OR DROP
-
-### RSE@Sheffield
-
-
-* What RSE team is/does
-  * Variety of projects and skills
-  * UK RSE
-  * EPSRC Fellowships
-
----
-### IO
- - sensible, robust binary formats
- - buffering
- - parallel IO
- - choice of filesystem
-
----
-
