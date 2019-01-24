@@ -110,12 +110,18 @@ Write correct code then make it fast, pass on wisdom from MathWorks
 * *Where* is my code slow?
 * *Why* is my code slow?
 <p style="margin-bottom:10px"><p/>  
-* Lots of tools to help with this...
-
-???
 
 Sometimes code is as fast as it can really be, in that case look for other approaches like
-parallelism
+parallelism.
+
+---
+## Development/optimisation cycle
+
+<div class="middle">
+    <div class="center">
+        <img src="images/opt-cycle.png" width="100%"/>
+    </div>
+</div>
 
 ---
 ## Profiling Tools
