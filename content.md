@@ -303,14 +303,14 @@ parallelism.
 
   * Testing early and often helps catch mistakes
   * Ideally test at two different scales:
-      * Every function should have accompanying tests (unit tests)
+      * Every **function** should have accompanying tests (**unit** tests)
           * Ensure functions give correct output for correct input
           * Graceful failures with invalid input
           * These should be run every time the code is changed
-      * Test full program behaviour (integration tests)
+      * Test **full program** behaviour (**integration** tests)
           * Identify useful test cases with known results
           * Test on different machines/architectures
-      * Regression tests: check against previous versions
+      * **Regression** tests: check against **previous versions**
 
 ---
 ## Testing: Frameworks
