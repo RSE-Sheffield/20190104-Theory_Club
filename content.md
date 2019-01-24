@@ -17,6 +17,7 @@ Research Software Engineering team, University of Sheffield
     * Gauging Performance
     * Parallelising code
     * Other acceleration techniques
+    * Accelerating Python
 1. Creating sustainable software
     * Version control
     * Testing
@@ -40,6 +41,8 @@ Research Software Engineering team, University of Sheffield
 * Once it works, look for "hot spots" that:
     * Take a long time to execute
     * Are executed many times
+
+* Keep testing to ensure nothing breaks!
 
 ???
 
@@ -306,6 +309,28 @@ For more info (inc. **mailing list** and events schedule) see [https://rse.shef.
     * Or just for a few days
 
 Examples of projects...
+
+---
+## Sustainable Software
+
+---
+## A Common Problem 
+
+* Emailed a zip of source files:
+
+<img src="images/wakereadme.png" width="100%" />
+
+* How do I run this?
+* What exactly will it do?
+* How do I interpret the output?
+
+---
+## A Better Experience 
+<img src="images/fbpic_readme.png" width="100%" />
+
+---
+## A Better Experience 
+<img src="images/fbpic_docs.png" width="100%" />
 
 ---
 ## Conclusions
