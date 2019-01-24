@@ -364,7 +364,15 @@ parallelism.
 * **Code Clinic**
     * Book an appointment to get help with a coding issue
 
-For more info (inc. **mailing list** and events schedule) see [https://rse.shef.ac.uk/](https://rse.shef.ac.uk/)
+---
+For more info (inc. **mailing list** and events schedule) see [https://rse.shef.ac.uk/](https://rse.shef.ac.uk/).
+
+<div class="middle">
+    <div class="center">
+        <img src="images/rse-events.png" width="80%" />
+    </div>
+</div>
+
 
 ---
 ## Getting more help
