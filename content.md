@@ -41,8 +41,14 @@ Research Software Engineering team, University of Sheffield
 * Once it works, look for "hot spots" that:
     * Take a long time to execute
     * Are executed many times
-
 * Keep testing to ensure nothing breaks!
+
+<div class="middle">
+    <div class="center">
+        <img src="images/optimisation.svg" width="100%"/>
+    </div>
+</div>
+
 
 ???
 
@@ -116,12 +122,6 @@ parallelism.
 
 ---
 ## Development/optimisation cycle
-
-<div class="middle">
-    <div class="center">
-        <img src="images/opt-cycle.png" width="100%"/>
-    </div>
-</div>
 
 ---
 ## Profiling Tools
