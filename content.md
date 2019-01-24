@@ -17,6 +17,7 @@ Research Software Engineering team, University of Sheffield
     * Gauging Performance
     * Parallelising code
     * Other acceleration techniques
+    * Accelerating Python
 1. Creating sustainable software
     * Version control
     * Testing
@@ -41,10 +42,64 @@ Research Software Engineering team, University of Sheffield
     * Take a long time to execute
     * Are executed many times
 
+* Keep testing to ensure nothing breaks!
+
 ???
 
-Write correct code then make it fast, pass on wisom from MathWorks
+Write correct code then make it fast, pass on wisdom from MathWorks
+---
+### Benchmarking
+ 
+* Run your code to provide a baseline
+* Record all the variables:
+  * Code Version
+  * Software stack
+  * Hardware and resources
 
+* Useful tools
+  * Unix `time`
+  * SGE `qacct`
+  * Python `timeit` - useful for snippets
+
+---
+## Benchmarking
+
+* Unix Time
+
+  ```sh
+  user@sharc-node001 ~ $ time ./my_program
+
+  real    0m4.442s
+  user    0m0.760s
+  sys     0m0.136s
+  ```
+
+* Python Timeit
+
+  ```sh
+  $ python3 -m timeit '"-".join(str(n) for n in range(100))'
+  10000 loops, best of 5: 30.2 usec per loop
+  ```
+
+---
+## Benchmarking
+
+* SGE logs
+
+  ```sh
+  $ qacct -j 3059981 
+  qsub_time    Wed Jan 23 21:29:30 2019
+  start_time   Wed Jan 23 21:29:42 2019
+  end_time     Wed Jan 23 21:49:49 2019
+  granted_pe   mpi                 
+  slots        4                   
+  ru_wallclock 1207s
+  ru_utime     810.633s
+  ru_stime     270.002s
+  cpu          1080.635s
+  maxvmem      341.039MB
+  category     -u ab1xyz -l h_rt=86400,h_vmem=4G -P rse
+  ```
 ---
 ## Profiling Code
 
@@ -78,33 +133,47 @@ parallelism.
   * Instrumentation - add code to the program to output extra information
 
 * Use results to guide where time is spent on improving code
-
-* Specific tools:
-  * C/C++/Fortran: `gprof` (free); Intel vTune (£££)
-  * Python: `cProfile`
+---
+## Profiling Tools
+* C/C++/Fortran:
+  * perf (free)
+  * gprof (free)
+  * Intel vTune (£££)
+  * Arm MAP (£££)
+  * Valgrind suite (free)
+* Python
+  * memory-profiler (free)
+  * line_profiler (free)
+  * pyflame (free)
+* Matlab
+  * Inbuilt profiling tools
 
 ---
-## Example: cProfile output
+## Example: Line profiler output
 
 ```
-$ python profile_fibonacci_raw.py
-RAW
-================================================================================
-[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]
+#    Mem usage   Increment   Line Contents
+================================================
+236  307.5 MiB   307.5 MiB  @profile(stream=LogFile('pfire_mprof'))
+237                         def make_tmat(fixed, reg, mask, dmap):
+238                             """Create the T^t T and T^t(f-m) matrices
+239                        
+240                             This is a very memory hungry step.
+241                             """
+242  307.5 MiB     0.0 MiB      diff = (reg+fixed)/2 * mask
+243                              # don't try to differentiate z if 2D
+244  307.5 MiB     0.0 MiB      grads = np.gradient(diff)
+245  307.5 MiB     0.0 MiB       diff = diff.reshape(-1)
+246  307.5 MiB     0.0 MiB      grads = [gd.reshape(-1) for gd in grads]
+247                             # do in two ops so can be done in place
+248  307.5 MiB     0.0 MiB      diff -= 1
+249  307.5 MiB     0.0 MiB      diff *= -1
+250  307.5 MiB     0.0 MiB      mask = sps.diags(dmap.mask_nodes.reshape(-1), 0)
+251  307.5 MiB     0.0 MiB      tmat = sps.hstack(
+252  665.2 MiB   357.7 MiB          [dmap.basis.multiply(gd.reshape((-1,1))) @ mask 
+253                                  for gd in grads] +
+254  767.4 MiB   102.2 MiB          [dmap.basis.multiply(diff.reshape((-1,1))) @ mask])
 
-         57356 function calls (66 primitive calls) in 0.746 CPU seconds
-
-   Ordered by: standard name
-
-   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-       21    0.000    0.000    0.000    0.000 :0(append)
-       20    0.000    0.000    0.000    0.000 :0(extend)
-        1    0.001    0.001    0.001    0.001 :0(setprofile)
-        1    0.000    0.000    0.744    0.744 <string>:1(<module>)
-        1    0.000    0.000    0.746    0.746 profile:0(print fib_seq(20); print)
-        0    0.000             0.000          profile:0(profiler)
- 57291/21    0.743    0.000    0.743    0.035 profile_fibonacci_raw.py:13(fib)
-     21/1    0.001    0.000    0.744    0.744 profile_fibonacci_raw.py:22(fib_seq)
 ```
 
 ---
@@ -169,13 +238,13 @@ RAW
   * C/C++/Fortran used for larger codes
   * Some Mathematica/IDL/R also
 
-* Typically we consider C/C++/FORTRAN as "fast" while interpreted languages like python are "slow"
+* Typically we consider C/C++/Fortran as "fast" while interpreted languages like python are "slow"
 
 ---
 ## Accelerating Python
 
 * Use **Numpy** to efficiently operate on 1, 2 or n-dimensional data 
-    * numpy's 'Vectorised' operations much faster than for loops
+    * Numpy's 'Vectorised' operations much faster than for loops
 
       ```ipython
       In [6]: %timeit [x**2 for x in range(100000)]                                                                                                                                                
@@ -184,20 +253,30 @@ RAW
       In [7]: %timeit np.power(np.arange(100000), 2)                                                                                                                                               
       619 µs ± 1.98 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
       ```
-    * More concise code as assign n-dim array to variable (good or bad?)
+    * Understands multi-dimensional arrays (no arrays of arrays)
 
 ---
-* **Scipy**: 
-  * lots of useful functions for numerical work
-  * inc. linear algebra
+## Accelerating Python
+
+* **Scipy**: numerical science toolkits
+  * Numerical calculus and optimization
+  * Linear algebra
+  * Signal processing
+  * Statistics
   * Much of back-end written in C or Fortran for performance 
+
+---
+## Accelerating Python
 
 * **Numba**: compile Python functions on the fly!
   * Speed of C using pure Python syntax
   * Numba even works on GPUs!
-  * Works well in conjunction with Numpy
-  * Useful if Numpy not enough 
-      * e.g. require iterative approach
+  * Fully integrated with Numpy
+  * Write custom Numpy functions
+  * Some limitations on compilable code
+
+---
+## Accelerating Python
 
 * **Cython**: write Python-like code that compiles to C
   * Useful if require finer-grained control of memory allocation
@@ -285,7 +364,7 @@ RAW
 * **Code Clinic**
     * Book an appointment to get help with a coding issue
 
-For more info (inc. **mailing list** and events schedule) see [https://rse.shef.ac.uk/][https://rse.shef.ac.uk/]
+For more info (inc. **mailing list** and events schedule) see [https://rse.shef.ac.uk/](https://rse.shef.ac.uk/)
 
 ---
 ## Getting more help
@@ -295,6 +374,28 @@ For more info (inc. **mailing list** and events schedule) see [https://rse.shef.
     * Or just for a few days
 
 Examples of projects...
+
+---
+## Sustainable Software
+
+---
+## A Common Problem 
+
+* Emailed a zip of source files:
+
+<img src="images/wakereadme.png" width="100%" />
+
+* How do I run this?
+* What exactly will it do?
+* How do I interpret the output?
+
+---
+## A Better Experience 
+<img src="images/fbpic_readme.png" width="100%" />
+
+---
+## A Better Experience 
+<img src="images/fbpic_docs.png" width="100%" />
 
 ---
 ## Conclusions
@@ -321,38 +422,12 @@ Examples of projects...
   * UK RSE
   * EPSRC Fellowships
 
-
+---
 ### IO
  - sensible, robust binary formats
  - buffering
  - parallel IO
  - choice of filesystem
 
-### Benchmarking
- 
- - Run entire program or section of code to provide baseline
-    - Ensure you have record of circumstances under which this captured (version of code, software stack, OS, hardware resources, core placement (if using MPI)
+---
 
-Useful tools
-unix time
-timeit (where can control number of runs/repeats and can specify init
-
-```sh
-$ python3 -m timeit '"-".join(str(n) for n in range(100))'
-10000 loops, best of 5: 30.2 usec per loop
-```
-SGE logs
-
-```sh
-$ qacct -j 3059981 
-qsub_time    Wed Jan 23 21:29:30 2019
-start_time   Wed Jan 23 21:29:42 2019
-end_time     Wed Jan 23 21:49:49 2019
-granted_pe   mpi                 
-slots        4                   
-ru_wallclock 1207s
-ru_utime     810.633s
-ru_stime     270.002s
-cpu          1080.635s
-maxvmem      341.039MB
-```
