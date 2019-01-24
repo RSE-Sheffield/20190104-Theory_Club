@@ -34,7 +34,7 @@ Research Software Engineering team, University of Sheffield
 </div>
 
 ---
-## Writing Performant Code (cont'd)
+## Writing Performant Code
 
 * Ignore code performance **until it works**!
 * Once it works, look for "hot spots" that:
@@ -55,12 +55,18 @@ Write correct code then make it fast, pass on wisom from MathWorks
 * *Where* is my code slow?
 * *Why* is my code slow?
 <p style="margin-bottom:10px"><p/>  
-* Lots of tools to help with this...
-
-???
 
 Sometimes code is as fast as it can really be, in that case look for other approaches like
-parallelism
+parallelism.
+
+---
+## Development/optimisation cycle
+
+<div class="middle">
+    <div class="center">
+        <img src="images/opt-cycle.png" width="100%"/>
+    </div>
+</div>
 
 ---
 ## Profiling Tools
@@ -74,9 +80,8 @@ parallelism
 * Use results to guide where time is spent on improving code
 
 * Specific tools:
-  * gprof (free) for C/C++/Fortran
-  * Intel vTune (£££) for C/C++/Fortran
-  * cProfile for Python
+  * C/C++/Fortran: `gprof` (free); Intel vTune (£££)
+  * Python: `cProfile`
 
 ---
 ## Example: cProfile output
