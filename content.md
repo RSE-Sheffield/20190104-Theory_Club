@@ -351,7 +351,36 @@ parallelism.
 </div>
 
 ---
-## Learning more / getting help
+### Example: Travis job status for GitHub Pull Request
+<div class="middle">
+    <div class="center">
+        <img src="images/travis-example.png" width="100%" />
+    </div>
+</div>
+
+---
+## Documentation?
+
+* Emailed a zip of source files:
+
+<img src="images/wakereadme.png" width="100%" />
+
+* How do I run this?
+* What exactly will it do?
+* How do I interpret the output?
+
+---
+## Documentation: A Better Experience 
+
+<img src="images/fbpic_readme.png" width="100%" />
+
+---
+## Documentation: A Better Experience 
+
+<img src="images/fbpic_docs.png" width="100%" />
+
+---
+## Research software: learning more / getting help
 
 * **Workshops**
     * RSE team runs various workshops on fundamentals:
@@ -359,6 +388,10 @@ parallelism.
     * and more advanced topics:
         * multithreading/multiprocessing, CUDA, deep learning...
     * CiCS also offer training in C/C++, Fortran, Python, MATLAB and HPC
+
+---
+## Research software: learning more / getting help
+
 * **Talks**
     * RSE seminar series 
 * **Code Clinic**
@@ -386,24 +419,6 @@ Examples of projects...
 ---
 ## Sustainable Software
 
----
-## A Common Problem 
-
-* Emailed a zip of source files:
-
-<img src="images/wakereadme.png" width="100%" />
-
-* How do I run this?
-* What exactly will it do?
-* How do I interpret the output?
-
----
-## A Better Experience 
-<img src="images/fbpic_readme.png" width="100%" />
-
----
-## A Better Experience 
-<img src="images/fbpic_docs.png" width="100%" />
 
 ---
 ## Conclusions
