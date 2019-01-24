@@ -288,24 +288,91 @@ parallelism.
 * Or explicitly write numerical code in C/C++
 
 ---
-## Resources
+## Testing: Why?
+
+<div class="middle">
+    <div class="center">
+        <img src="images/xkcd-fixing-problems.png" width="50%" />
+    </div>
+</div>
+
+.footnote[.red.bold[*] Randall Munroe, XKCD (https://xkcd.com/1909/)] 
+
+---
+## Testing: Types
+
+  * Testing early and often helps catch mistakes
+  * Ideally test at two different scales:
+      * Every **function** should have accompanying tests (**unit** tests)
+          * Ensure functions give correct output for correct input
+          * Graceful failures with invalid input
+          * These should be run every time the code is changed
+      * Test **full program** behaviour (**integration** tests)
+          * Identify useful test cases with known results
+          * Test on different machines/architectures
+      * **Regression** tests: check against **previous versions**
+
+---
+## Testing: Frameworks
+
+* Tools to automate running of tests
+* Programmer: 
+    * writes test functions
+    * provides expected output
+    * sets PRNG seed?
+* Framework runs all tests and provides report
+
+---
+* Examples:
+    * C++: `Boost.Test`
+    * Python: `py.test`
+
+<div class="middle">
+    <div class="center">
+        <img src="images/pytest-example.png" width="100%" />
+    </div>
+</div>
+
+---
+
+## Testing: Continuous Integration
+
+* **Automatically** build and test code after changes
+* **Immediate feedback on bugs/mistakes!**
+* Test in a variety of **clean** environments
+    * e.g. different permutations of OS version and dependency versions
+* Collaborate with more confidence
+* Free services for open source projects!
+
+<div class="middle">
+    <div class="center">
+        <img src="images/free-ci.svg" width="50%" />
+    </div>
+</div>
+
+---
+## Learning more / getting help
 
 * **Workshops**
     * RSE team runs various workshops on fundamentals:
         * UNIX shell, Git, Python/R/MATLAB, relational databases...
     * and more advanced topics:
         * multithreading/multiprocessing, CUDA, deep learning...
-    * CiCS also offer training in 
+    * CiCS also offer training in C/C++, Fortran, Python, MATLAB and HPC
+* **Talks**
+    * RSE seminar series 
+* **Code Clinic**
+    * Book an appointment to get help with a coding issue
 
 ---
-## Resources
+For more info (inc. **mailing list** and events schedule) see [https://rse.shef.ac.uk/](https://rse.shef.ac.uk/).
 
-* **Talks**
-    * RSE seminar series: 
-* **Code Clinic**
-    * Book an appointment to get help with a coding issue.
+<div class="middle">
+    <div class="center">
+        <img src="images/rse-events.png" width="80%" />
+    </div>
+</div>
 
-For more info (inc. **mailing list** and events schedule) see [https://rse.shef.ac.uk/](https://rse.shef.ac.uk/)
 
 ---
 ## Getting more help
